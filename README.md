@@ -4,7 +4,8 @@
 
 ## **Word Generator**
 
-`Dictionary.py` utilizes the system dictionary to generate word strings using only characters that are available and drawn in the current master. The script lets you define minimum and maximum lengths, case as well as required characters. 
+`Dictionary.py` utilizes the system dictionary to generate word strings using only characters that are available and drawn in the current master. The script lets you define minimum and maximum lengths, case as well as required characters. <br>
+
 <img width="406" alt="Skjermbilde 2025-07-07 kl  00 33 01" src="https://github.com/user-attachments/assets/8de857ce-33d6-4b60-a1b3-c78e56de7f8f" />
 
 
