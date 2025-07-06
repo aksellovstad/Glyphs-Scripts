@@ -1,6 +1,5 @@
 # Glyphs Scripts
-
-
+<br>
 
 ## **Word Generator**
 
@@ -14,8 +13,21 @@
 `BasicSpacingString.py` is simply a shortcut for spacing strings A–Z.  
 Running the script opens **two separate tabs** with the following spacing strings:
 
-
 `ComplexSpacingString.py` generates every possible combination of uppercase characters together, lowercase characters together, and uppercase with lowercase together.
+
+| Basic    | Complex     |
+|----------|-------------|
+| HHHAHHH  | HHHAaAHHH   |
+| HHHBHHH  | HHHAbAHHH   |
+| HHHCHHH  | HHHAcAHHH   |
+| HHHDHHH  | HHHAdAHHH   |
+| HHHEHHH  | HHHAeAHHH   |
+| HHHFHHH  | HHHAfAHHH   |
+| …        | …           |
+| HHHXHHH  | HHHZxZHHH   |
+| HHHYHHH  | HHHZyZHHH   |
+| HHHZHHH  | HHHZzZHHH   |
+
 
 ## **Glyphs**
 
