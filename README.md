@@ -12,7 +12,7 @@
 `BasicSpacingString.py` is simply a shortcut for spacing strings `A–Z`.  
 Running the script opens **two separate tabs** with uppercase and lowercase spacing strings, respectively.
 
-`ComplexSpacingString.py` generates every possible combination of uppercase letters, lowercase letters, and uppercase–lowercase pairings from `A-Z` in a comprehensive set of spacing strings, much like `BasicSpacingString.py`.
+`ComplexSpacingString.py` generates every possible combination of uppercase letters, lowercase letters, and uppercase–lowercase pairings from `A-Z` in a comprehensive set of spacing strings, much like `BasicSpacingString.py`. <br>
 
 | Basic    | Complex     |
 |----------|-------------|
@@ -28,10 +28,14 @@ Running the script opens **two separate tabs** with uppercase and lowercase spac
 | HHHZHHH  | HHHZzZHHH   |
 
 
-## **Glyphs**
+## **Open Glyphs**
 
-`EmptyGlyphs.py`, as the name suggests, opens a new tab with all glyphs that are empty (no paths or components) in the current master.
+`EmptyGlyphs.py`, as the name might suggest, the script opens a new tab with all glyphs that are empty in the current master.
+
+`OpenbyColorLabel.py`lets you open all glyphs with a specified color label(s). <br>
+
+<img width="346" alt="Skjermbilde 2025-07-07 kl  11 47 53" src="https://github.com/user-attachments/assets/2fb23925-8e4e-4a23-a644-69b513a17f6c" />
 
 ## **Build Glyphs**
 
-`PasteComponent.py` lets you add a specified component to every currently selected glyph in the font. Ideal for creating fallback fonts or adding new masters.
+`PasteComponent.py` lets you add a specified component to every currently selected glyph in the font. Ideal for creating fallback fonts or when designing additional masters.
