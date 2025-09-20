@@ -26,6 +26,10 @@
 
 `DisableAutoAlignment.py` *deactivates* auto alignment for all components in all selected glyphs in the current master.
 
+## **Glyph Names**
+
+`RenameGlyphs.py` works as a find and replace tool for changing the name of Glyphs. Ideal for updating the suffix of multiple glyphs.
+
 ## **Spacing**
 
 `BasicSpacingString.py` is simply a shortcut for spacing strings `A–Z`.  
