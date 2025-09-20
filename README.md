@@ -3,14 +3,14 @@
 ## **Open Glyphs**
 
 `WordGenerator.py` utilizes the system dictionary to generate word strings using only characters that are available and drawn in the current master. The script lets you define minimum and maximum word lengths, select letter case, and specify required characters. <br>
-
-<img width="406" alt="Skjermbilde 2025-07-07 kl  00 33 01" src="https://github.com/user-attachments/assets/8de857ce-33d6-4b60-a1b3-c78e56de7f8f" />
+<img src="https://github.com/user-attachments/assets/e3477cda-8ec4-4546-ae80-13a7ea6ac943" width="800" alt="Word Generator 3.0 demo GIF">
 
 `EmptyGlyphs.py`, as the name might suggest, the script opens a new tab with all glyphs that are empty in the current master.
 
 `OpenbyColorLabel.py`lets you open all glyphs with a specified color label(s). <br>
 
-<img width="346" alt="Skjermbilde 2025-07-07 kl  11 47 53" src="https://github.com/user-attachments/assets/2fb23925-8e4e-4a23-a644-69b513a17f6c" />
+<img width="386" height="419" alt="Skjermbilde 2025-09-20 kl  21 22 37" src="https://github.com/user-attachments/assets/288c967f-3cfb-4e92-8877-a888c824f9be" />
+
 
 ## **Build Glyphs**
 
@@ -18,7 +18,7 @@
 
 ## **Components** 
 
-`TransferComponents.py` lets you replicate component structures across masters, essentially letting you transfer components across masters. Applies to all selected. glyphs
+`TransferComponents.py` lets you copy component across masters, essentially letting you replicate a component structure across other masters. Applies to all selected glyphs.
 
 ## **Alignment** 
 
@@ -45,5 +45,4 @@ Running the script opens **two separate tabs** with uppercase and lowercase spac
 | HHHXHHH  | HHHZxZHHH   |
 | HHHYHHH  | HHHZyZHHH   |
 | HHHZHHH  | HHHZzZHHH   |
-
 
