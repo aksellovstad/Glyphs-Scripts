@@ -15,7 +15,10 @@
 ## **Build Glyphs**
 
 `PasteComponent.py` lets you add a specified component to every currently selected glyph in the font.
+
 `RemoveComponent.py` lets you remove a specified component to every currently selected glyph in the font.
+
+<img src="https://github.com/user-attachments/assets/8dc46aac-4723-4137-9a69-9947b5d083ab" width="800" alt="Paste glyphs demo GIF">
 
 ## **Components** 
 
@@ -31,7 +34,6 @@
 
 `RenameGlyphs.py` works as a find and replace tool for changing the name of Glyphs. Ideal for updating the suffix of multiple glyphs. <br>
 <img width="506" height="245" alt="Skjermbilde 2025-09-20 kl  22 49 20" src="https://github.com/user-attachments/assets/f4d75022-a15b-4755-9a03-3c9a3fd94751" />
-
 
 ## **Spacing**
 
