@@ -1,4 +1,4 @@
-# MenuTitle: Open Glyphs by Color Label
+# MenuTitle: Open by Color Label
 # -*- coding: utf-8 -*-
 __doc__ = """
 Lets you open all glyphs of a specified color in a new tab.
