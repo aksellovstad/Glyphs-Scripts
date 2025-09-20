@@ -14,7 +14,8 @@
 
 ## **Build Glyphs**
 
-`PasteComponent.py` lets you add a specified component to every currently selected glyph in the font. Ideal for creating fallback fonts or when designing additional masters.
+`PasteComponent.py` lets you add a specified component to every currently selected glyph in the font.
+`RemoveComponent.py` lets you remove a specified component to every currently selected glyph in the font.
 
 ## **Components** 
 
