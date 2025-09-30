@@ -16,6 +16,12 @@
 
 `PasteComponent.py` lets you add a specified component to every currently selected glyph in the font. Ideal for creating fallback fonts or when designing additional masters.
 
+## **Build Shapes**
+
+`InsertPolygon.py` generates a regular convex polygon that is symmetrical.
+
+<img src="https://github.com/user-attachments/assets/ece31860-b1ee-4c54-a045-6f3b36663f02" width="600" alt="Insert Polygon demo GIF">
+
 ## **Components** 
 
 `TransferComponents.py` lets you copy component across masters, essentially letting you replicate a component structure across other masters. Applies to all selected glyphs.
