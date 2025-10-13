@@ -56,7 +56,7 @@ class SidesDelegate:
 
 class LivePolygon:
     def __init__(self):
-        self.w = FloatingWindow((320,130), "Live Polygon")
+        self.w = FloatingWindow((320,130), "Insert Polygon")
 
         # Sides
         self.w.sidesLabel = TextBox((10,10,60,18), "Sides:")
@@ -89,19 +89,12 @@ class LivePolygon:
             return None
 
     def compute_center(self, layer):
-        try:
-            b = layer.bounds
-            if b and (not (b.size.width == 0 and b.size.height == 0)):
-                cx = b.origin.x + (b.size.width / 2.0)
-                cy = b.origin.y + (b.size.height / 2.0)
-                return cx, cy
-        except Exception:
-            pass
+        # Fixed center: X centered, Y constant at half of size or 0
         try:
             cx = layer.width / 2.0
-        except Exception:
+        except:
             cx = 0.0
-        cy = 0.0
+        cy = 0.0  # keeps polygon from moving downward
         return cx, cy
 
     def changed(self, sender):
