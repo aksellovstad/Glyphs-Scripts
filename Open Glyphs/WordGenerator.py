@@ -1,27 +1,28 @@
 # MenuTitle: Word Generator
 # -*- coding: utf-8 -*-
-__doc__ = """
-Generates words using only drawn glyphs in the current selected master. Filters by word count, word length (min/max),
-and must-include characters (space-separated; each string can be single or multi-letter, e.g. 's tf e').
-Remembers last-used settings per font (stored in font.userData["sk.wordgen"]).
-"""
-
 from GlyphsApp import Glyphs
 import GlyphsApp
 import random
 import vanilla
 import os
 
+_WORD_CACHE = None
+
+__doc__ = """
+Generates words using only glyphs drawn in the selected master.
+Filters by word count, word length, and case-sensitive required characters.
+Remembers last-used settings.
+"""
+
 # -----------------------------
-# Per-font persistence (font.userData)
+# Persistence utilities
 # -----------------------------
-UDK = "sk.wordgen"  # userData key on the font
+UDK = "sk.wordgen"
 
 def getpref_font(font, key, default):
     try:
-        data = font.userData.get(UDK) or {}
-        return data.get(key, default)
-    except Exception:
+        return (font.userData.get(UDK) or {}).get(key, default)
+    except:
         return default
 
 def setpref_font(font, key, value):
@@ -29,7 +30,7 @@ def setpref_font(font, key, value):
         data = dict(font.userData.get(UDK) or {})
         data[key] = value
         font.userData[UDK] = data
-    except Exception:
+    except:
         pass
 
 # -----------------------------
@@ -42,7 +43,7 @@ def loadWordList():
         try:
             with open(DICTIONARY_PATH, "r", encoding="utf-8") as f:
                 return [w.strip() for w in f if w.strip().isalpha()]
-        except Exception:
+        except:
             pass
     return []
 
@@ -50,35 +51,34 @@ def loadWordList():
 # Font helpers
 # -----------------------------
 def getDrawnCharacters(font):
-    """Return the exact-case characters that have drawn content in the selected master."""
+    """Return the characters with drawn outlines in the current master."""
     master = font.selectedFontMaster or font.masters[0]
     chars = set()
+
     for g in font.glyphs:
         if not g.export or not g.unicode:
             continue
         layer = g.layers[master.id]
         if layer and (layer.paths or layer.components):
             try:
-                ch = chr(int(g.unicode, 16))
-                chars.add(ch)  # keep case as-is
-            except Exception:
+                chars.add(chr(int(g.unicode, 16)))
+            except:
                 pass
-    return chars  # case-sensitive set
+    return chars
 
-def _tokens_from_string(mustInclude):
-    # Split on spaces; ignore empties (supports multi-letter tokens)
-    return [t for t in (mustInclude or "").split() if t]
-
+# -----------------------------
+# Filtering
+# -----------------------------
 def filterWords(wordList, allowedChars, titleCase=False, upperCase=False,
                 minLen=2, maxLen=20, mustInclude=""):
-    tokens = _tokens_from_string(mustInclude)
+    mustInclude = mustInclude or ""
 
     out = []
     for w in wordList:
         if not (minLen <= len(w) <= maxLen):
             continue
 
-        # Build candidate in desired case
+        # Apply user-selected casing
         if upperCase:
             cand = w.upper()
         elif titleCase:
@@ -86,19 +86,21 @@ def filterWords(wordList, allowedChars, titleCase=False, upperCase=False,
         else:
             cand = w.lower()
 
-        # Must be composed ONLY of characters that are actually drawn in THIS case
+        # Allowed characters check (case-sensitive)
         if not set(cand).issubset(allowedChars):
             continue
 
-        # Token matching: case-insensitive (user convenience)
-        if tokens:
-            cand_ci = cand.lower()
-            if not any(tok.lower() in cand_ci for tok in tokens):
-                continue
+        # All required characters must be present (case-sensitive)
+        if mustInclude and not all(ch in cand for ch in mustInclude):
+            continue
 
         out.append(cand)
+
     return out
 
+# -----------------------------
+# Output
+# -----------------------------
 def generateParagraph(words, wordCount=30):
     return " ".join(random.choice(words) for _ in range(wordCount)) + "."
 
@@ -109,13 +111,10 @@ class WordGenerator:
     def __init__(self):
         self.font = Glyphs.font
         if not self.font:
-            try:
-                Glyphs.showNotification("Word Generator", "No font open.")
-            except Exception:
-                print("Word Generator: No font open.")
+            Glyphs.showNotification("Word Generator", "No font open.")
             return
 
-        # Load per-font prefs
+        # Load prefs
         wordCount = int(getpref_font(self.font, "wordCount", 30))
         minLen    = int(getpref_font(self.font, "minLen", 2))
         maxLen    = int(getpref_font(self.font, "maxLen", 20))
@@ -134,7 +133,7 @@ class WordGenerator:
         self.w.maxLabel  = vanilla.TextBox((160, 48, 80, 17), "Max length:", sizeStyle="small")
         self.w.maxInput  = vanilla.EditText((245, 46, 40, 22), str(maxLen), callback=self._save)
 
-        self.w.mustContainLabel = vanilla.TextBox((15, 78, 150, 17), "Must include (tokens):", sizeStyle="small")
+        self.w.mustContainLabel = vanilla.TextBox((15, 78, 150, 17), "Must include:", sizeStyle="small")
         self.w.mustContainInput = vanilla.EditText((165, 76, 140, 22), mustIncl, callback=self._save)
 
         self.w.titleCaseToggle = vanilla.CheckBox((15, 108, -15, 20), "Use Title Case", value=titleOn, callback=self._toggleSave)
@@ -143,7 +142,6 @@ class WordGenerator:
         self.w.button = vanilla.Button((15, 180, -15, 30), "Generate", callback=self.insert)
         self.w.open()
 
-        # ensure mutual exclusivity on load
         self._normalizeCaseToggles(save=False)
 
     # ---------- Persistence ----------
@@ -151,8 +149,9 @@ class WordGenerator:
         def _int(v, default):
             try:
                 return int(str(v).strip())
-            except Exception:
+            except:
                 return default
+
         setpref_font(self.font, "wordCount", max(1, _int(self.w.lengthInput.get(), 30)))
         setpref_font(self.font, "minLen",    _int(self.w.minInput.get(), 2))
         setpref_font(self.font, "maxLen",    _int(self.w.maxInput.get(), 20))
@@ -181,26 +180,30 @@ class WordGenerator:
             wordCount = max(1, int(self.w.lengthInput.get()))
             minLen    = max(2, int(self.w.minInput.get()))
             maxLen    = max(minLen, int(self.w.maxInput.get()))
-        except Exception:
+        except:
             Glyphs.showNotification("Invalid input", "Please enter valid numbers.")
             return
 
         useTitle = bool(self.w.titleCaseToggle.get())
         useUpper = bool(self.w.upperCaseToggle.get())
-        mustIncl = (self.w.mustContainInput.get() or "").strip()
+        mustIncl = (self.w.mustContainInput.get() or "")
 
-        allowed = getDrawnCharacters(self.font)  # exact-case allowed set
+        allowed = getDrawnCharacters(self.font)
         words   = loadWordList()
-        pool    = filterWords(words, allowed, titleCase=useTitle, upperCase=useUpper,
-                              minLen=minLen, maxLen=maxLen, mustInclude=mustIncl)
+
+        pool = filterWords(words, allowed,
+                           titleCase=useTitle,
+                           upperCase=useUpper,
+                           minLen=minLen,
+                           maxLen=maxLen,
+                           mustInclude=mustIncl)
 
         if not pool:
             Glyphs.showNotification("No usable words", "No words match your filters.")
             return
 
         text = generateParagraph(pool, wordCount)
-        self.font.newTab(text)  # no forced size
-
+        self.font.newTab(text)
         self.w.close()
 
 WordGenerator()

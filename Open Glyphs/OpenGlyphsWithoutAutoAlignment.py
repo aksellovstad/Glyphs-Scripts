@@ -1,4 +1,4 @@
-#MenuTitle: Find Glyphs with Components that have Auto-Alignment Disabled
+#MenuTitle: Open Glyphs without Auto-Alignment
 # Open glyph-edit tabs for glyphs that contain components with automatic alignment disabled
 # Paste into Glyphs.app Macro Panel and Run.
 
