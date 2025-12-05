@@ -12,7 +12,7 @@
 
 `PasteComponent.py` lets you *add* a specified component to every currently selected glyph in the font. 
 
-`RemoveComponent.py` lets you *remove* a specified component to every currently selected glyph in the font. 
+`RemoveComponent.py` lets you *remove* a specified component from every currently selected glyph in the font. 
 
 
 ## **Build Shapes**
@@ -24,7 +24,7 @@
 
 ## **Components** 
 
-`TransferComponents.py` lets you copy component across masters, essentially letting you replicate a component structure across other masters. Applies to all selected glyphs.
+`TransferComponents.py` lets you copy components across masters, essentially letting you replicate the component structure from a source to a target master. Applies to all selected glyphs.
 
 
 ## **Glyph Names**
@@ -50,7 +50,9 @@
 
 `EmptyGlyphs.py`, as the name might suggest, the script opens a new tab with all glyphs that are empty in the *current* master.
 
-`OpenbyColorLabel.py`lets you open all glyphs with a specified color label(s). <br>
+`OpenIncompatibleGlyphs.py` opens a new tab with all glyphs with incompatibilities on a asigned variable axis.
+
+`OpenbyColorLabel.py` lets you open all glyphs with a specified color label. <br>
 
 <img width="386" height="419" alt="Skjermbilde 2025-09-20 kl  21 22 37" src="https://github.com/user-attachments/assets/288c967f-3cfb-4e92-8877-a888c824f9be" />
 
@@ -60,4 +62,4 @@
 `BasicSpacingString.py` is simply a shortcut for spacing strings `A–Z`.  
 Running the script opens **two separate tabs** with uppercase and lowercase spacing strings, respectively.
 
-`ComplexSpacingString.py` generates every possible combination of uppercase letters, lowercase letters, and uppercase–lowercase pairings from `A-Z` in a comprehensive set of spacing strings, much like `BasicSpacingString.py`. 
+`ComplexSpacingString.py` generates every possible combination of uppercase letters, lowercase letters, and uppercase–lowercase pairings from `A-Z` in a comprehensive set of spacing strings.. 
