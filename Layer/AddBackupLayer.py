@@ -5,11 +5,15 @@ import datetime
 
 font = Glyphs.font
 if font:
-	for layer in font.selectedLayers:
-		glyph = layer.parent
-		if glyph:
-			backup = layer.copy()
-			backup.name = datetime.datetime.now().strftime("%d %b %y at %H:%M")
-			glyph.layers.append(backup)
+    processed = set()
+    timestamp = datetime.datetime.now().strftime("%d %b %y at %H:%M")
 
-	Glyphs.redraw()
+    for layer in font.selectedLayers:
+        glyph = layer.parent
+        if glyph and glyph.name not in processed:
+            backup = layer.copy()
+            backup.name = timestamp
+            glyph.layers.append(backup)
+            processed.add(glyph.name)
+
+    Glyphs.redraw()

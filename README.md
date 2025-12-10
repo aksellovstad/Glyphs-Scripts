@@ -40,7 +40,9 @@
 
 ## **Layer**
 
-`AddBackupLayer.py` can be utilized for adding a backup layer via a shortcut (e. g. **control** + **L**). Follows the system syntax for date and time.
+`AddBackupLayer.py` can be utilized for adding a backup layer via a shortcut (e. g. **control** + **L**). Follows the system syntax for date and time and works on multiple characters at once without creating duplicates
+
+`AddCustomBackupLayer.py` works much the same as `AddBackupLayer.py`, but additionally lets you add a custom name for the new layer and is applicable to multiple charcters at once. Suggested shortcut: **control** + **shift** + **L**.
 
 
 ## **Open Glyphs**
