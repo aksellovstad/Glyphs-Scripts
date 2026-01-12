@@ -24,7 +24,11 @@
 
 ## **Components** 
 
-`TransferComponents.py` lets you copy components across masters, essentially letting you replicate the component structure from a source to a target master. Applies to all selected glyphs.
+`TransferComponents.py` lets you copy components across masters, letting you replicate the component structure from a source to a target master. Applies to all selected glyphs.
+
+`TransferComponents.py` lets you copy paths across masters, from a source to a target master. Applies to all selected glyphs. Optional: Clears target glyph(s), includes anchors and inherit sidebearings.
+
+`TransferPathsAndComponents.py` is an all in one tool that does all of the above as well as letting you transfer paths and components across documents.
 
 
 ## **Glyph Names**
