@@ -5,8 +5,6 @@
 
 `EnableAutoAlignment.py` *activates* auto alignment for all components in all selected glyphs in the *current* master.
 
-`OpenGlyphsWithoutAutoAlignment.py` opens all glyphs that contain component(s) with automatic alignment disabled.
-
 
 ## **Build Glyphs**
 
@@ -54,7 +52,7 @@
 
 `EmptyGlyphs.py`, as the name might suggest, the script opens a new tab with all glyphs that are empty in the *current* master.
 
-`OpenGlyphsWithoutAutoAlignment.py` opens glyphs that icludes components that have automatic alignment *disabled*.
+`OpenGlyphsWithoutAutoAlignment.py` opens all glyphs that contain component(s) with automatic alignment *disabled*.
 
 `OpenIncompatibleGlyphs.py` opens a new tab with all glyphs with incompatibilities on a asigned variable axis.
 
