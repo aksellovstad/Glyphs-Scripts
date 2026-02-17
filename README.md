@@ -54,7 +54,11 @@
 `WordGenerator.py` utilizes the system dictionary to generate word strings using only characters that are available and drawn in the *current* master. The script lets you define minimum and maximum word lengths, select letter case, and specify required characters. <br>
 <img src="https://github.com/user-attachments/assets/e3477cda-8ec4-4546-ae80-13a7ea6ac943" width="800" alt="Word Generator 3.0 demo GIF">
 
+`CloseNodes.py` opens glyphs that include nodes that are less than 5 pt. apart.
+
 `EmptyGlyphs.py`, as the name might suggest, the script opens a new tab with all glyphs that are empty in the *current* master.
+
+`OpenGlyphsWithoutAutoAlignment.py` opens glyphs that icludes components that have automatic alignment *disabled*.
 
 `OpenIncompatibleGlyphs.py` opens a new tab with all glyphs with incompatibilities on a asigned variable axis.
 
