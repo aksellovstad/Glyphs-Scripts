@@ -1,6 +1,7 @@
 # Glyphs Scripts
 
 ## **Alignment** 
+
 `DisableAutoAlignment.py` *deactivates* auto alignment for all components in all selected glyphs in the *current* master.
 
 `EnableAutoAlignment.py` *activates* auto alignment for all components in all selected glyphs in the *current* master.
@@ -16,6 +17,17 @@
 ## **Build Shapes**
 
 `InsertPolygon.py` generates a regular convex polygon.
+
+
+## **Checks**
+
+`CheckAscenderDescenderConsistency` reports the consistancy of ascender/descender length across masters and opens inconsistencies in a new tab. Ignores differing overshoot metrics.
+
+`CheckCaseDiacritics.py` checks uppercase precomposed letters with diacritics and verifies whether their diacritic components should use .case variants. If a .case version exists but the composite uses the regular accent, the glyph is flagged. Reports and opens a new tab with all affected glyphs. Requests swapping to .case counterpart after reporting.
+
+`CloseNodes.py` opens glyphs that include nodes that are less than 5 pt. apart.
+
+`HighestLowestNodes.py` finds and opens tallest and lowest glyphs in current master layers. Ignores backup layers
 
 
 ## **Components** 
@@ -48,8 +60,6 @@
 
 `WordGenerator.py` utilizes the system dictionary to generate word strings using only characters that are available and drawn in the *current* master. The script lets you define minimum and maximum word lengths, select letter case, and specify required characters. <br>
 
-`CloseNodes.py` opens glyphs that include nodes that are less than 5 pt. apart.
-
 `EmptyGlyphs.py`, as the name might suggest, the script opens a new tab with all glyphs that are empty in the *current* master.
 
 `OpenGlyphsWithoutAutoAlignment.py` opens all glyphs that contain component(s) with automatic alignment *disabled*.
@@ -62,7 +72,6 @@
 ## **Lookups**
 
 `ClassSuggester.py` scans for glyphs that share a base name with one or more suffixed variants (e.g. .alt, .ss01, .case, etc.), and prints suggested OpenType class definitions to the Macro Panel. Script is *read only*. For example a file containing ``hyphen``, ``hyphen.case``, ``colon``, ``colon.case``, ``a``, ``a.alt``, ``a.ss01`` will print a suggested @class: 
-
 
 ```text
 @a      = [a a.alt a.ss01];
