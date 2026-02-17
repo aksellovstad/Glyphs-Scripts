@@ -63,6 +63,19 @@
 <img width="386" height="419" alt="Skjermbilde 2025-09-20 kl  21 22 37" src="https://github.com/user-attachments/assets/288c967f-3cfb-4e92-8877-a888c824f9be" />
 
 
+## **Lookups**
+
+`ClassSuggester.py` scans for glyphs that share a base name with one or more suffixed variants (e.g. .alt, .ss01, .case, etc.), and prints suggested OpenType class definitions to the Macro Panel. Script is *read only*. For example a file containing ``hyphen``, ``hyphen.case``, ``colon``, ``colon.case``, ``a``, ``a.alt``, ``a.ss01`` will print a suggested @class: 
+
+
+```text
+@a      = [a a.alt a.ss01];
+@colon  = [colon colon.case];
+@hyphen = [hyphen hyphen.case];
+```
+
+
+
 ## **Spacing**
 
 `BasicSpacingString.py` is simply a shortcut for spacing strings `A–Z`.  
