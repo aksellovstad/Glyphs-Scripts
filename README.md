@@ -21,7 +21,7 @@
 
 ## **Checks**
 
-`CheckAscenderDescenderConsistency` reports the consistancy of ascender/descender length across masters and opens inconsistencies in a new tab. Ignores differing overshoot metrics.
+`CheckAscenderDescenderConsistency` reports the consistency of ascender/descender length across masters and opens inconsistencies in a new tab. Ignores differing overshoot metrics.
 
 `CheckCaseDiacritics.py` checks uppercase precomposed letters with diacritics and verifies whether their diacritic components should use .case variants. If a .case version exists but the composite uses the regular accent, the glyph is flagged. Reports and opens a new tab with all affected glyphs. Requests swapping to .case counterpart after reporting.
 
@@ -34,7 +34,7 @@
 
 `TransferComponents.py` lets you copy components across masters, letting you replicate the component structure from a source to a target master. Applies to all selected glyphs.
 
-`TransferComponents.py` lets you copy paths across masters, from a source to a target master. Applies to all selected glyphs. Optional: Clears target glyph(s), includes anchors and inherit sidebearings.
+`TransferPaths.py` lets you copy paths across masters, from a source to a target master. Applies to all selected glyphs. Optional: Clears target glyph(s), includes anchors and inherit sidebearings.
 
 `TransferPathsAndComponents.py` is an all in one tool that does all of the above as well as letting you transfer paths and components across documents.
 
@@ -53,7 +53,7 @@
 
 `AddBackupLayer.py` can be utilized for adding a backup layer via a shortcut (e. g. **control** + **L**). Follows the system syntax for date and time and works on multiple characters at once without creating duplicates
 
-`AddCustomBackupLayer.py` works much the same as `AddBackupLayer.py`, but additionally lets you add a custom name for the new layer and is applicable to multiple charcters at once. Suggested shortcut: **control** + **shift** + **L**.
+`AddCustomBackupLayer.py` works much the same as `AddBackupLayer.py`, but additionally lets you add a custom name for the new layer and is applicable to multiple characters at once. Suggested shortcut: **control** + **shift** + **L**.
 
 
 ## **Open Glyphs**
@@ -64,7 +64,7 @@
 
 `OpenGlyphsWithoutAutoAlignment.py` opens all glyphs that contain component(s) with automatic alignment *disabled*.
 
-`OpenIncompatibleGlyphs.py` opens a new tab with all glyphs with incompatibilities on a asigned variable axis.
+`OpenIncompatibleGlyphs.py` opens a new tab with all glyphs with incompatibilities on a assigned variable axis.
 
 `OpenbyColorLabel.py` lets you open all glyphs with a specified color label. <br>
 
