@@ -1,16 +1,16 @@
-# Open Glyphs with Close Nodes
+# Open Layers with Close Nodes
 
 from GlyphsApp import *
 import math
 
-THRESHOLD = 5.0  # distance in font units
+THRESHOLD = 5.0
 
 font = Glyphs.font
 
 if not font:
     print("No font open.")
 else:
-    glyphsToOpen = set()
+    layersToOpen = []
 
     for glyph in font.glyphs:
         for master in font.masters:
@@ -18,8 +18,9 @@ else:
             if not layer:
                 continue
 
+            foundCloseNodes = False
+
             for path in layer.paths:
-                # Only on-curve nodes (ignore handles)
                 nodes = [n for n in path.nodes if n.type != OFFCURVE]
                 nodeCount = len(nodes)
 
@@ -33,17 +34,16 @@ else:
                         distance = math.hypot(dx, dy)
 
                         if distance < THRESHOLD:
-                            glyphsToOpen.add(glyph.name)
+                            layersToOpen.append(layer)
+                            foundCloseNodes = True
                             break
-                    else:
-                        continue
+                    if foundCloseNodes:
+                        break
+                if foundCloseNodes:
                     break
-                else:
-                    continue
-                break
 
-    if glyphsToOpen:
-        font.newTab("/" + "/".join(sorted(glyphsToOpen)))
-        print(f"Opened {len(glyphsToOpen)} glyphs with on-curve nodes closer than {THRESHOLD} units.")
+    if layersToOpen:
+        font.newTab(layersToOpen)
+        print(f"Opened {len(layersToOpen)} layers with on-curve nodes closer than {THRESHOLD} units.")
     else:
-        print("No glyphs found with close on-curve nodes.")
+        print("No layers found with close on-curve nodes.")

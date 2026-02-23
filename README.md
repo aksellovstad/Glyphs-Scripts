@@ -6,6 +6,8 @@
 
 `EnableAutoAlignment.py` *activates* auto alignment for all components in all selected glyphs in the *current* master.
 
+`TransferSideBearings.py` lets you *transfer* side bearing values across masters. Applies to all selected glyphs
+
 
 ## **Build Glyphs**
 
@@ -41,7 +43,7 @@
 
 ## **Glyph Names**
 
-`RenameGlyphs.py` works as a find and replace tool for changing the name of Glyphs. Ideal for updating the suffix of multiple glyphs. <br>
+`RenameGlyphs.py` works as a find and replace tool for changing the name of Glyphs. Ideal for updating the suffix of multiple glyphs. 
 
 
 ## **Guides**
@@ -51,22 +53,11 @@
 
 ## **Layer**
 
-`AddBackupLayer.py` can be utilized for adding a backup layer via a shortcut (e. g. **control** + **L**). Follows the system syntax for date and time and works on multiple characters at once without creating duplicates
+`AddBackupLayer.py` can be utilized for adding a backup layer via a shortcut (e. g. **control** + **L**). Follows the system syntax for date and time and works on multiple characters at once without creating duplicates.
+
+`AddBackupLayerToAllMasters.py` works just like `AddBackupLayer.py`, but applies to all master layers in selected glyphs.
 
 `AddCustomBackupLayer.py` works much the same as `AddBackupLayer.py`, but additionally lets you add a custom name for the new layer and is applicable to multiple characters at once. Suggested shortcut: **control** + **shift** + **L**.
-
-
-## **Open Glyphs**
-
-`WordGenerator.py` utilizes the system dictionary to generate word strings using only characters that are available and drawn in the *current* master. The script lets you define minimum and maximum word lengths, select letter case, and specify required characters. <br>
-
-`EmptyGlyphs.py`, as the name might suggest, the script opens a new tab with all glyphs that are empty in the *current* master.
-
-`OpenGlyphsWithoutAutoAlignment.py` opens all glyphs that contain component(s) with automatic alignment *disabled*.
-
-`OpenIncompatibleGlyphs.py` opens a new tab with all glyphs with incompatibilities on a assigned variable axis.
-
-`OpenbyColorLabel.py` lets you open all glyphs with a specified color label. <br>
 
 
 ## **Lookups**
@@ -78,6 +69,20 @@
 @colon  = [colon colon.case];
 @hyphen = [hyphen hyphen.case];
 ```
+
+## **Open Glyphs**
+
+`EmptyGlyphs.py`, as the name might suggest, the script opens a new tab with all glyphs that are empty in the *current* master.
+
+`OpenGlyphsWithoutAutoAlignment.py` opens all glyphs that contain component(s) with automatic alignment *disabled*.
+
+`OpenIncompatibleGlyphs.py` opens a new tab with all glyphs with incompatibilities on a assigned variable axis.
+
+`OpenbyUniqueGlyphs.py` opens a new tab with all glyphs that contain unique paths, i.e all glyphs that are not constructed by components. Helps keep track of which paths are actually drawn.
+
+`OpenbyColorLabel.py` lets you open all glyphs with a specified color label.
+
+`WordGenerator.py` utilizes the system dictionary to generate word strings using only characters that are available and drawn in the *current* master. The script lets you define minimum and maximum word lengths, select letter case, and specify required characters. <br>
 
 
 ## **Spacing**
