@@ -6,7 +6,7 @@
 
 `EnableAutoAlignment.py` *activates* auto alignment for all components in all selected glyphs in the *current* master.
 
-`TransferSideBearings.py` lets you *transfer* side bearing values across masters. Applies to all selected glyphs
+`TransferSideBearings.py` lets you *transfer* side bearing values across masters. Applies to all selected glyphs.
 
 
 ## **Build Glyphs**
@@ -29,7 +29,7 @@
 
 `CloseNodes.py` opens glyphs that include nodes that are less than 5 pt. apart.
 
-`HighestLowestNodes.py` finds and opens tallest and lowest glyphs in current master layers. Ignores backup layers
+`HighestLowestNodes.py` finds and opens tallest and lowest glyphs in current master layers. Ignores backup layers.
 
 
 ## **Components** 
@@ -43,7 +43,7 @@
 
 ## **Glyph Names**
 
-`RenameGlyphs.py` works as a find and replace tool for changing the name of Glyphs. Ideal for updating the suffix of multiple glyphs. 
+`RenameGlyphs.py` works as a find and replace tool for changing the name of Glyphs. Ideal for updating the suffix of multiple glyphs.
 
 
 ## **Guides**
@@ -72,7 +72,13 @@
 
 ## **Open Glyphs**
 
+`AaZzString.py` opens a new tab with upper -and lowercase pairings from `A-Z`.
+
 `EmptyGlyphs.py`, as the name might suggest, the script opens a new tab with all glyphs that are empty in the *current* master.
+
+`OpenAllPermutations.py` Opens a new tab containing the cartesian product of the selected glyphs, i.e a set of all combinations in ordered pairs. For instance, selecting **X Y Z** will give the output **XX XY XZ YX YY YZ ZX ZY ZZ**. 
+
+A warning dialog appears when the total exceeds 3000 pairs, as very large tabs may slow down or destabilize Glyphs.
 
 `OpenGlyphsWithoutAutoAlignment.py` opens all glyphs that contain component(s) with automatic alignment *disabled*.
 
@@ -82,12 +88,11 @@
 
 `OpenbyColorLabel.py` lets you open all glyphs with a specified color label.
 
-`WordGenerator.py` utilizes the system dictionary to generate word strings using only characters that are available and drawn in the *current* master. The script lets you define minimum and maximum word lengths, select letter case, and specify required characters. <br>
+`WordGenerator.py` utilizes the system dictionary to generate word strings using only characters that are available and drawn in the *current* master. The script lets you define minimum and maximum word lengths, select letter case, and specify required characters.
 
 
 ## **Spacing**
 
-`BasicSpacingString.py` is simply a shortcut for spacing strings `A–Z`.  
-Running the script opens **two separate tabs** with uppercase and lowercase spacing strings, respectively.
+`BasicSpacingString.py` is simply a shortcut for spacing strings `A–Z`. Running the script opens **two separate tabs** with uppercase and lowercase spacing strings, respectively.
 
-`ComplexSpacingString.py` generates every possible combination of uppercase letters, lowercase letters, and uppercase–lowercase pairings from `A-Z` in a comprehensive set of spacing strings.. 
+`ComplexSpacingString.py` generates every possible combination of uppercase letters, lowercase letters, and uppercase–lowercase pairings from `A-Z` in a comprehensive set of spacing strings.
